@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import { e } from "@angular/core/src/render3";
 
 @Injectable()
 export class ConnectionService{

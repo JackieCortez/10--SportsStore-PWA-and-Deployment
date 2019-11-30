@@ -11,8 +11,8 @@ const enableHttps = true;
 
 const ssloptions = {}
 
-if(enableHttps){
-    ssloptions.cert = fs.readFileSync("./ssl/sportsstore.crt");
+if (enableHttps) {
+    ssloptions.cert =  fs.readFileSync("./ssl/sportsstore.crt");
     ssloptions.key = fs.readFileSync("./ssl/sportsstore.pem");
 }
 
@@ -24,13 +24,12 @@ app.use("/api", router);
 app.use(history());
 app.use("/", express.static("./dist/SportsStore"));
 
-app.listen(80,
-    () => console.log("HTTPS Server running on port 80"));
+app.listen(80, 
+    () => console.log("HTTP Server running on port 80"));
 
-if(enableHttps){
+if (enableHttps) {
     https.createServer(ssloptions, app).listen(443,
         () => console.log("HTTPS Server running on port 443"));
-}
-else{
-    console.log("HTTPS disabled");
+} else {
+    console.log("HTTPS disabled")
 }
